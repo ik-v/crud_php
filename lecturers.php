@@ -1,1 +1,1 @@
-<?php include("./lecturers/index.php")?>
+<?php include("./lecturers/index.php");?>
