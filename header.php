@@ -13,9 +13,9 @@
         <div class="col-md-3 bg-secondary" style="min-height: 100vh;">
             <h3>Menu</h3>
             <ul class="list list-group">
-                <li><a href="../index.php">Dashboard</a></li>
-                <li><a href="students/index.php">Students</a></li>
-                <li><a href="#">Lecturers</a></li>
+                <li><a href="index.php">Dashboard</a></li>
+                <li><a href="students.php">Students</a></li>
+                <li><a href="lectures.php">Lecturers</a></li>
             </ul>
         </div>
         <div class="col-md-9 pt-5">
