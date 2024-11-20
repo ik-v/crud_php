@@ -7,73 +7,75 @@
             <div class="card card-body">
                 <h3 class="text-center">
                     <?php if(isset($_GET['edit'])){
-                    echo "Update this student";
-                }else{
-                    echo "Insertion";
-                }?>
-                </h3>
-                <?php
-                    $fname = '';
-                    $lname = '';
-                    $age = '';
+                        echo "Update this student";
+                    }else{
+                        echo "Insertion";
+                    }?>
+                    </h3>
+                    <?php
+                        $fname = '';
+                        $lname = '';
+                        $age = '';
 
-                    $success = '';
-                    $resp_up = '';
-                    if(isset($_POST['submit'])){
-                        $fname = $_POST['fname'];
-                        $lname = $_POST['lname'];
-                        $age = $_POST['age'];
+                        $success = '';
+                        $resp_up = '';
+                        if(isset($_POST['submit'])){
 
-                        $sql = mysqli_query($conection, "INSERT INTO students (`first_name`, `last_name`, age) VALUES ('$fname', '$lname', '$age')");
+                            $fname = mysqli_real_escape_string($conection, trim(htmlentities($_POST['fname'])));
+                            $lname = mysqli_real_escape_string($conection, trim(htmlentities($_POST['lname'])));
+                            $age = mysqli_real_escape_string($conection, trim(htmlentities($_POST['age'])));
 
-                        if($sql){
-                            $success = "Your student is registered";
-                        }
-                    }
-
-                    if(isset($_POST['update'])){
-                        $id = $_POST['id'];
-
-                        $fname = mysqli_real_escape_string($conection, trim(htmlentities($_POST['fname'])));
-                        $lname = mysqli_real_escape_string($conection, trim(htmlentities($_POST['lname'])));
-                        $age = mysqli_real_escape_string($conection, trim(htmlentities($_POST['age'])));
-                        
-                        if(empty($fname)){
-                            $error = "First name is required";
-                        }
-                        if(empty($lname)){
-                            $error = "Last name is required";
-                        }
-                        if(empty($age)){
-                            $error = "Age is required";
-                        }
-
-                        if(empty($error)){
-                            $update = mysqli_query($conection, "UPDATE `students` 
-                                                SET `first_name` = '$fname', `last_name` = '$lname', `age` = '$age' 
-                                                WHERE `id` = '$id'");
-                            if($update){
-                                $resp_up = "Student updated";
+                            $sql = mysqli_query($conection, "INSERT INTO students (`first_name`, `last_name`, age) VALUES ('$fname', '$lname', '$age')");
+                            if($sql){
+                                $success = "Your student is registered";
+                                // sleep(500);
+                                header("location:index.php");
                             }
-                        }else{
-                            ?>
-                            <div class="alert alert-danger"><?= $error;?></div>
-                            <?php
                         }
-                    }
 
-                    if(isset($_GET['edit'])){
-                        $id = $_GET['edit'];
+                        if(isset($_POST['update'])){
+                            $id = $_POST['id'];
 
-                        $select_student = mysqli_query($conection, "SELECT * FROM students WHERE id = $id");
+                            $fname = mysqli_real_escape_string($conection, trim(htmlentities($_POST['fname'])));
+                            $lname = mysqli_real_escape_string($conection, trim(htmlentities($_POST['lname'])));
+                            $age = mysqli_real_escape_string($conection, trim(htmlentities($_POST['age'])));
+                            
+                            if(empty($fname)){
+                                $error = "First name is required";
+                            }
+                            if(empty($lname)){
+                                $error = "Last name is required";
+                            }
+                            if(empty($age)){
+                                $error = "Age is required";
+                            }
 
-                        $row = mysqli_fetch_array($select_student);
+                            if(empty($error)){
+                                $update = mysqli_query($conection, "UPDATE `students` 
+                                                    SET `first_name` = '$fname', `last_name` = '$lname', `age` = '$age' 
+                                                    WHERE `id` = '$id'");
+                                if($update){
+                                    $resp_up = "Student updated";
+                                }
+                            }else{
+                                ?>
+                                <div class="alert alert-danger"><?= $error;?></div>
+                                <?php
+                            }
+                        }
 
-                        $fname = $row['first_name'];
-                        $lname = $row['last_name'];
-                        $age = $row['age'];
-                    }
-                ?>
+                        if(isset($_GET['edit'])){
+                            $id = $_GET['edit'];
+
+                            $select_student = mysqli_query($conection, "SELECT * FROM students WHERE id = $id");
+
+                            $row = mysqli_fetch_array($select_student);
+
+                            $fname = $row['first_name'];
+                            $lname = $row['last_name'];
+                            $age = $row['age'];
+                        }
+                    ?>
                 <form action="" method="post">
                     <?php 
                         if($success) {
@@ -87,7 +89,6 @@
                             <div class="alert alert-warning"><?= $resp_up;?></div>
                             <?php
                         }
-                        
                     ?>
                     <div class="form-group">
                         <?php

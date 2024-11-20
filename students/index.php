@@ -1,11 +1,13 @@
-<?php include("header.php") ?>
-<?php include("dbcon.php") ?>
+<?php
+    include("../header.php");
+    include("../dbcon.php");
+?>
 
 <div class="card card-body">
-    <h1>Dashboard</h1>
+    <h1>Students</h1>
     <p>
         Lorem ipsum dolor sit, amet consectetur adipisicing elit. Inventore at, quod reprehenderit atque, non tenetur, soluta optio ducimus repudiandae molestias incidunt dignissimos consequuntur quaerat quas vitae. Atque at dicta magnam?
     </p>
 </div>
 
-<?php include("footer.php"); ?>
+<?php include("../footer.php");?>

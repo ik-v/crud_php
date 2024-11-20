@@ -8,5 +8,14 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1 id="main_title">CRUD APPLICATION IN PHP</h1>
-    <div class="container">
+    <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 bg-secondary" style="min-height: 100vh;">
+            <h3>Menu</h3>
+            <ul class="list list-group">
+                <li><a href="../index.php">Dashboard</a></li>
+                <li><a href="students/index.php">Students</a></li>
+                <li><a href="#">Lecturers</a></li>
+            </ul>
+        </div>
+        <div class="col-md-9 pt-5">
