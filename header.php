@@ -15,7 +15,7 @@
             <ul class="list list-group">
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a href="students.php">Students</a></li>
-                <li><a href="lectures.php">Lecturers</a></li>
+                <li><a href="lecturers.php">Lecturers</a></li>
             </ul>
         </div>
         <div class="col-md-9 pt-5">

@@ -1,1 +1,1 @@
-<?php include("./students/index.php");?>
+<?php require_once("./students/index.php");?>

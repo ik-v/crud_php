@@ -1,6 +1,6 @@
 <?php
-    include("../header.php");
-    include("../dbcon.php");
+    require_once "./header.php";
+    require_once "./dbcon.php";
 ?>
 
 <div class="card card-body">
@@ -10,4 +10,4 @@
     </p>
 </div>
 
-<?php include("../footer.php");?>
+<?php require_once "./footer.php";?>
