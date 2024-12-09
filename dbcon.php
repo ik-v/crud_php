@@ -10,4 +10,8 @@
         die("Conection Failed");
     }
 
+    $fname = '';
+    $lname = '';
+    $age = '';
+    $sex = '';
 ?>
