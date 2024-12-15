@@ -10,4 +10,10 @@
         die("Conection Failed");
     }
 
+    $username = '';
+    $name = '';
+    $email = '';
+    $user_level = '';
+    $dob = '';
+
 ?>
