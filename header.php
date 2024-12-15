@@ -16,6 +16,6 @@
                 <li><a href="index.php">Dashboard</a></li>
                 <li><a href="students.php">Students</a></li>
                 <li><a href="lecturers.php">Lecturers</a></li>
-            </ul>
+            </ul> 
         </div>
         <div class="col-md-9 pt-5">
